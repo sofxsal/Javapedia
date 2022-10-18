@@ -26,37 +26,35 @@ public class Javapedia {
             System.out.print("\n");
         }
  
-        System.out.println("These are the values you stored:"); 
+        System.out.println("These are the values you stored:");
+        System.out.println("\n");
+        System.out.println("\t********************************************");
         print2DArray(database);
+        System.out.println("\t********************************************");
 
         System.out.print("\nWho do you want information on? ");  
-        
-        /*Task 5: Let the user search the database by name. 
-            If there's a match:
-              print(    tab of space    Name: <name>)
-              print(    tab of space    Date of birth: <date of birth>)
-              print(    tab of space    Occupation: <occupation>)
 
-        */        
+        String name = scan.nextLine();
+        System.out.println("\n");
+        for (int i = 0; i < database.length; i++) {
+            if (database[i][0].equalsIgnoreCase(name)){
+                System.out.println("\tName: " + database[i][0]);
+                System.out.println("\tDate of birth: " + database[i][1]);
+                System.out.println("\tOccupation: " + database[i][2]);
+                break;
+            } else {
+                System.out.println("Sorry not available");
+                break;
+            }
+        } 
 
         scan.close();
     }
 
-    /**
-     * Function name: print2DArray
-     * @param array (String[][])
-     * 
-     * Inside the function
-     *  1. print the database
-     *     • a tab of space precedes each row.
-     *     • each value in database has one space from the other value. 
-     *     • print a new line.
-     */
-
-     public static void print2DArray(String[][] database) {
-        for (int i = 0; i < database.length; i++) {
-            for (int j = 0; j < database[i].length; j++) {
-                System.out.print("\t" + database[i][j] + " ");
+     public static void print2DArray(String[][] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                System.out.print("\t" + array[i][j] + " ");
             }
             System.out.println("\n");
         }
